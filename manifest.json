@@ -1,0 +1,32 @@
+{
+  "dxt_version": "0.1",
+  "name": "github-mcp-server",
+  "version": "0.6.2",
+  "description": "MCP server for using the GitHub API",
+  "author": {
+    "name": "Anthropic, PBC (https://anthropic.com)"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.js"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${user_config.github_personal_access_token}"
+      }
+    }
+  },
+  "user_config": {
+    "github_personal_access_token": {
+      "type": "string",
+      "title": "GitHub Personal Access Token",
+      "description": "Your GitHub Personal Access Token for authentication",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "license": "MIT"
+}
